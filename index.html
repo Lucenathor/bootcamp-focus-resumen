@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Bootcamp FOCUS. Consulting Group | Resumen Sábado 25 de Abril</title>
+    <meta name="description" content="Resumen completo del Bootcamp FOCUS. Consulting Group - Sábado 25 de Abril de 2026. Viralización, Agentes IA, CRM y más.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C5A55A;
+            --gold-light: #D4BA7A;
+            --gold-dark: #A68A3E;
+            --navy: #0A1628;
+            --navy-light: #0F1F3A;
+            --navy-mid: #152847;
+            --white: #FFFFFF;
+            --gray-100: #F0F0F0;
+            --gray-200: #D0D0D0;
+            --gray-400: #8A8A8A;
+            --red: #E63946;
+            --green: #2ECC71;
+            --blue: #3498DB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes borderGlow {
+            0%, 100% { border-color: rgba(197, 165, 90, 0.3); }
+            50% { border-color: rgba(197, 165, 90, 0.8); }
+        }
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+        @keyframes slideInNumber {
+            from { opacity: 0; transform: scale(0.3) rotate(-10deg); }
+            to { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animate-delay-1 { transition-delay: 0.1s; }
+        .animate-delay-2 { transition-delay: 0.2s; }
+        .animate-delay-3 { transition-delay: 0.3s; }
+        .animate-delay-4 { transition-delay: 0.4s; }
+        .animate-delay-5 { transition-delay: 0.5s; }
+
+        /* ===== PARTICLES BACKGROUND ===== */
+        .particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 3px; height: 3px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            background: radial-gradient(ellipse at center, var(--navy-light) 0%, var(--navy) 70%);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(197,165,90,0.03) 50%, transparent 100%);
+            pointer-events: none;
+        }
+        .hero-logo {
+            width: 220px;
+            margin-bottom: 30px;
+            animation: scaleIn 1s ease forwards;
+            filter: drop-shadow(0 0 30px rgba(197,165,90,0.3));
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+        .hero h1 .gold {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--gray-200);
+            font-weight: 300;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            animation: fadeInUp 1s ease 0.7s forwards;
+            opacity: 0;
+        }
+        .hero-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: rgba(197,165,90,0.1);
+            border: 1px solid rgba(197,165,90,0.3);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gold-light);
+            animation: fadeInUp 1s ease 0.9s forwards;
+            opacity: 0;
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 30px;
+            animation: float 2s ease-in-out infinite;
+            opacity: 0.5;
+        }
+        .hero-scroll svg { width: 24px; height: 24px; stroke: var(--gold); }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .section-desc {
+            text-align: center;
+            color: var(--gray-200);
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
+        }
+
+        /* ===== STATS BANNER ===== */
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+            border-top: 1px solid rgba(197,165,90,0.2);
+            border-bottom: 1px solid rgba(197,165,90,0.2);
+        }
+        .stat-item {
+            text-align: center;
+            padding: 16px 8px;
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-200);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gold), rgba(197,165,90,0.1));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 20px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -33px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 15px rgba(197,165,90,0.5);
+        }
+        .timeline-time {
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .timeline-content {
+            color: var(--gray-200);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .timeline-content strong { color: var(--white); font-weight: 600; }
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .timeline-content li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+        .timeline-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* ===== CARDS ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 640px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .card {
+            background: linear-gradient(145deg, rgba(15,31,58,0.8), rgba(10,22,40,0.9));
+            border: 1px solid rgba(197,165,90,0.15);
+            border-radius: 16px;
+            padding: 28px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(197,165,90,0.4);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        .card p {
+            font-size: 0.85rem;
+            color: var(--gray-200);
+            line-height: 1.6;
+        }
+
+        /* ===== DATA HIGHLIGHT BOXES ===== */
+        .data-box {
+            background: linear-gradient(135deg, rgba(230,57,70,0.1), rgba(230,57,70,0.05));
+            border-left: 3px solid var(--red);
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .data-box.success {
+            background: linear-gradient(135deg, rgba(46,204,113,0.1), rgba(46,204,113,0.05));
+            border-left-color: var(--green);
+        }
+        .data-box.info {
+            background: linear-gradient(135deg, rgba(52,152,219,0.1), rgba(52,152,219,0.05));
+            border-left-color: var(--blue);
+        }
+        .data-box.gold-box {
+            background: linear-gradient(135deg, rgba(197,165,90,0.1), rgba(197,165,90,0.05));
+            border-left-color: var(--gold);
+        }
+        .data-box .big-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .data-box .big-number.red { color: var(--red); }
+        .data-box .big-number.green { color: var(--green); }
+        .data-box .big-number.gold { color: var(--gold); }
+        .data-box .big-number.blue { color: var(--blue); }
+        .data-box .data-label {
+            font-size: 0.85rem;
+            color: var(--gray-200);
+            line-height: 1.5;
+        }
+        .data-box .data-source {
+            font-size: 0.7rem;
+            color: var(--gray-400);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* ===== IMPACT TABLE ===== */
+        .impact-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+        .impact-table thead th {
+            background: var(--navy-mid);
+            color: var(--gold);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--gold);
+        }
+        .impact-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(197,165,90,0.1);
+            color: var(--gray-200);
+        }
+        .impact-table tbody tr { background: rgba(15,31,58,0.5); }
+        .impact-table tbody tr:nth-child(even) { background: rgba(15,31,58,0.8); }
+        .impact-table tbody tr:hover { background: rgba(197,165,90,0.05); }
+        .impact-table .highlight-cell {
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .impact-table .danger-cell {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* ===== QUOTE ===== */
+        .quote-block {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 40px 0;
+            position: relative;
+        }
+        .quote-block::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: rgba(197,165,90,0.2);
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            line-height: 1;
+        }
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 12px;
+            line-height: 1.5;
+        }
+        .quote-author {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ===== TEAM ===== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 16px;
+        }
+        .team-member {
+            text-align: center;
+            padding: 20px 10px;
+            background: rgba(15,31,58,0.6);
+            border: 1px solid rgba(197,165,90,0.1);
+            border-radius: 12px;
+            transition: border-color 0.3s ease;
+        }
+        .team-member:hover { border-color: rgba(197,165,90,0.4); }
+        .team-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--navy);
+        }
+        .team-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .team-role {
+            font-size: 0.65rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== TOOLS SECTION ===== */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .tool-tag {
+            padding: 8px 18px;
+            border: 1px solid rgba(197,165,90,0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gray-200);
+            background: rgba(197,165,90,0.05);
+            transition: all 0.3s ease;
+        }
+        .tool-tag:hover {
+            background: rgba(197,165,90,0.15);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+
+        /* ===== TIPS SECTION ===== */
+        .tip-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(197,165,90,0.1);
+        }
+        .tip-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+        .tip-text {
+            font-size: 0.9rem;
+            color: var(--gray-200);
+            line-height: 1.6;
+        }
+        .tip-text strong { color: var(--white); }
+
+        /* ===== CASE STUDY ===== */
+        .case-study {
+            background: linear-gradient(145deg, rgba(46,204,113,0.08), rgba(46,204,113,0.02));
+            border: 1px solid rgba(46,204,113,0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .case-study-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .case-study h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+        }
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .case-metric {
+            text-align: center;
+            padding: 14px;
+            background: rgba(10,22,40,0.5);
+            border-radius: 10px;
+        }
+        .case-metric .metric-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--green);
+        }
+        .case-metric .metric-label {
+            font-size: 0.7rem;
+            color: var(--gray-200);
+            margin-top: 4px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, var(--navy), #050D1A);
+            border-top: 1px solid rgba(197,165,90,0.15);
+        }
+        .footer-logo {
+            width: 160px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(197,165,90,0.2));
+        }
+        .footer-thanks {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--gray-200);
+            max-width: 500px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+        .footer-copy {
+            font-size: 0.7rem;
+            color: var(--gray-400);
+            margin-top: 30px;
+        }
+
+        /* ===== NEXT STEPS ===== */
+        .next-steps {
+            background: linear-gradient(135deg, rgba(197,165,90,0.08), rgba(197,165,90,0.02));
+            border: 1px solid rgba(197,165,90,0.2);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .step-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 0;
+        }
+        .step-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--gold);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.75rem;
+        }
+        .step-text {
+            font-size: 0.9rem;
+            color: var(--gray-200);
+            line-height: 1.5;
+        }
+        .step-text strong { color: var(--white); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .hero-logo { width: 160px; }
+            section { padding: 50px 0; }
+            .timeline { padding-left: 30px; }
+            .timeline::before { left: 10px; }
+            .timeline-dot { left: -27px; }
+            .impact-table { font-size: 0.75rem; }
+            .impact-table thead th, .impact-table tbody td { padding: 8px 10px; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Particles Background -->
+<div class="particles" id="particles"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/NgbapgszuCMWQUAA.png" alt="FOCUS. Consulting Group" class="hero-logo">
+    <div class="hero-badge">Bootcamp Exclusivo</div>
+    <h1>Resumen del <span class="gold">Bootcamp</span></h1>
+    <p class="hero-subtitle">Todo lo que necesitas recordar de la sesión del sábado 25 de abril. Viralización, Agentes IA, CRM, Velocidad de Respuesta y mucho más.</p>
+    <div class="hero-date">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Sábado, 25 de Abril de 2026
+    </div>
+    <div class="hero-scroll">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </div>
+</section>
+
+<!-- ===== STATS BANNER ===== -->
+<div class="stats-banner">
+    <div class="stat-item animate-on-scroll">
+        <div class="stat-number">275+</div>
+        <div class="stat-label">Minutos de Sesión</div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-1">
+        <div class="stat-number">220+</div>
+        <div class="stat-label">Asistentes Online</div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-2">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Consultores</div>
+    </div>
+    <div class="stat-item animate-on-scroll animate-delay-3">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Temas Principales</div>
+    </div>
+</div>
+
+<!-- ===== SESSION 1: MORNING ===== -->
+<section>
+    <div class="container">
+        <div class="animate-on-scroll">
+            <div class="section-divider"></div>
+            <div class="section-label">Sesion 1 &mdash; Manana</div>
+            <h2 class="section-title">Viralización y Aportación de Valor</h2>
+            <p class="section-desc">La sesión de la mañana se centró en la filosofía de negocio de FOCUS., la importancia de aportar valor gratuito como estrategia de marketing, y las claves para crear contenido viral en redes sociales.</p>
+        </div>
+
+        <div class="timeline">
+            <!-- Item 1 -->
+            <div class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">Bienvenida</div>
+                <div class="timeline-title">Inicio del Bootcamp y Presentación del Equipo</div>
+                <div class="timeline-content">
+                    Adrián Lucena abrió la sesión presentando al equipo completo de consultores de FOCUS. Consulting Group. Se explicaron las <strong>3 formas de aprovechar el Bootcamp</strong>: escuchar y asimilar (recomendada), implementar en directo con consultores, o hacerlo después con la grabación. Se destacó que los <strong>3 meses de consultoría personalizada</strong> comienzan el lunes.
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">Filosofia de Negocio</div>
+                <div class="timeline-title">Claves del Modelo FOCUS. Consulting Group</div>
+                <div class="timeline-content">
+                    <ul>
+                        <li><strong>Formación constante:</strong> Adrián invierte 14.000-15.000 EUR/año en mentoría con José Elías (Audax, 2.500M EUR/año)</li>
+                        <li><strong>Canales controlados:</strong> Comunicación con consultores a través de la plataforma para agendar sesiones 1 a 1</li>
+                        <li><strong>Ejecución inmediata:</strong> Formulario previo a cada sesión para especificar necesidades</li>
+                        <li><strong>Servicios incluidos:</strong> CRM personalizado, embudo de ventas, anuncios, viralización, agentes IA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">Neuromarketing</div>
+                <div class="timeline-title">La Ley de la Reciprocidad y Lead Magnets</div>
+                <div class="timeline-content">
+                    Se explicó cómo <strong>aportar valor gratuito</strong> activa la Ley de la Reciprocidad: cuanto más valor das, más en deuda se sienten los clientes. Se usaron ejemplos como el <strong>Happy Meal de McDonald's</strong> (sesgo cognitivo desde la infancia), <strong>gimnasios</strong> con sesiones gratuitas, <strong>pastelerías</strong> con cookies gratis, y <strong>Electro Ángel</strong> (0 a 216.000 seguidores en menos de un año).
+                    <ul>
+                        <li>Las llamadas convierten un <strong>30% vs 2%</strong> de formularios web</li>
+                        <li>El canal más difícil suele ser el que mejor convierte</li>
+                        <li>Perder el miedo a dar información gratuita: te posiciona como autoridad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="timeline-item animate-on-scroll">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">Viralización</div>
+                <div class="timeline-title">Cómo Crear Reels Virales en TikTok e Instagram</div>
+                <div class="timeline-content">
+                    <strong>Principio fundamental:</strong> No experimentar desde cero. Inspirarse en contenido ya viral en tu sector buscando en TikTok y filtrando por "Número de me gusta" y "Últimos seis meses".
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 Elements of Viral Reel -->
+        <div class="card-grid" style="margin-top: 30px;">
+            <div class="card animate-on-scroll">
+                <div class="card-icon">🎯</div>
+                <h3>1. El Hook (Gancho)</h3>
+                <p>Los primeros 3 segundos son cruciales. Necesitas >65% de retención. Usa preguntas, afirmaciones impactantes o imágenes que generen curiosidad. <strong>El 80% de tu tiempo debe ir al hook.</strong></p>
+            </div>
+            <div class="card animate-on-scroll animate-delay-1">
+                <div class="card-icon">💎</div>
+                <h3>2. Aportación de Valor</h3>
+                <p>Contenido tutorial, pasos a seguir, solución de problemas. Entrega el valor paso a paso: Paso 1, Paso 2, Paso 3. La métrica clave: los <strong>Guardados</strong> indican que el contenido es valioso.</p>
+            </div>
+            <div class="card animate-on-scroll animate-delay-2">
+                <div class="card-icon">📢</div>
+                <h3>3. Call to Action (CTA)</h3>
+                <p>Siempre indicar la siguiente acción: seguir, comentar, ir al link de la bio, agendar cita. Sin CTA, pierdes todo el potencial. Ejemplo: un reel de tatuaje con 4.3M views perdió ~50.000-60.000 EUR por no tener CTA.</p>
+            </div>
+            <div class="card animate-on-scroll animate-delay-3">
+                <div class="card-icon">🧪</div>
+                <h3>Reels de Prueba (Instagram)</h3>
+                <p>Función que permite subir reels solo visibles para audiencia desconocida, sin aparecer en tu feed. Permite <strong>testear diferentes hooks</strong> con mínimo esfuerzo antes de publicar en tu perfil.</p>
+            </div>
+        </div>
+
+        <div class="quote-block animate-on-scroll" style="margin-top: 40px;">
+            <p class="quote-text">Lo que manda para viralizar es el hook, siempre es el hook. El 80% de vuestro tiempo es identificar un buen hook, lo demás es una estructura paso a paso y aportar valor, se acabó.</p>
+            <p class="quote-author">Adrián Lucena &mdash; CEO, FOCUS. Consulting Group</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SESSION 2: AFTERNOON ===== -->
+<section style="background: linear-gradient(180deg, rgba(15,31,58,0.3) 0%, var(--navy) 100%);">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <div class="section-divider"></div>
+            <div class="section-label">Sesion 2 &mdash; Tarde</div>
+            <h2 class="section-title">La Velocidad Mata tu Negocio</h2>
+            <p class="section-desc">Datos demoledores sobre por qué cada segundo cuenta cuando un lead te contacta. Estudios de Harvard, MIT, Forbes y HubSpot demuestran que la velocidad de respuesta es el factor decisivo.</p>
+        </div>
+
+        <!-- Key Stats -->
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+            <div class="data-box animate-on-scroll">
+                <div class="big-number red">42 horas</div>
+                <div class="data-label">Tiempo medio que tardan las empresas en responder a un lead</div>
+                <div class="data-source">Fuente: HubSpot Research</div>
+            </div>
+        </div>
+
+        <div class="card-grid" style="margin-top: 16px;">
+            <div class="data-box animate-on-scroll">
+                <div class="big-number red">73%</div>
+                <div class="data-label">De los leads NUNCA son contactados</div>
+                <div class="data-source">Fuente: InsideSales.com, 2021</div>
+            </div>
+            <div class="data-box animate-on-scroll animate-delay-1">
+                <div class="big-number red">55%</div>
+                <div class="data-label">De las empresas tardan 5 días o más en responder</div>
+                <div class="data-source">Fuente: InsideSales.com</div>
+            </div>
+            <div class="data-box animate-on-scroll animate-delay-2">
+                <div class="big-number red">47%</div>
+                <div class="data-label">No responden en las primeras 24 horas</div>
+                <div class="data-source">Fuente: Harvard Business Review</div>
+            </div>
+            <div class="data-box success animate-on-scroll animate-delay-3">
+                <div class="big-number green">+400%</div>
+                <div class="data-label">Aumento en conversiones si respondes en menos de 60 segundos</div>
+                <div class="data-source">Fuente: Velocify Research</div>
+            </div>
+        </div>
+
+        <!-- Impact Table -->
+        <div class="animate-on-scroll" style="margin-top: 40px; overflow-x: auto;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 16px; text-align: center;">Impacto del Tiempo de Respuesta</h3>
+            <table class="impact-table">
+                <thead>
+                    <tr>
+                        <th>Tiempo</th>
+                        <th>Impacto en Conversiones</th>
+                        <th>Fuente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-cell">&lt; 1 minuto</td>
+                        <td class="highlight-cell">+400% conversiones</td>
+                        <td>Velocify Research</td>
+                    </tr>
+                    <tr>
+                        <td>2 minutos</td>
+                        <td class="danger-cell">Bajan a la mitad</td>
+                        <td>MIT Lead Response</td>
+                    </tr>
+                    <tr>
+                        <td>5 minutos</td>
+                        <td class="danger-cell">21x menos probable cualificar</td>
+                        <td>MIT / InsideSales</td>
+                    </tr>
+                    <tr>
+                        <td>10 minutos</td>
+                        <td class="danger-cell">-80% conversión</td>
+                        <td>Velocify Research</td>
+                    </tr>
+                    <tr>
+                        <td>30 minutos</td>
+                        <td class="danger-cell">95% leads desperdiciados</td>
+                        <td>Harvard Business Review</td>
+                    </tr>
+                    <tr>
+                        <td>1 hora</td>
+                        <td class="danger-cell">7x menos probable cualificar</td>
+                        <td>Harvard Business Review</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 24 horas</td>
+                        <td class="danger-cell">Tu lead ya es de otro</td>
+                        <td>Forbes / InsideSales</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-grid" style="margin-top: 30px;">
+            <div class="data-box gold-box animate-on-scroll">
+                <div class="big-number gold">78%</div>
+                <div class="data-label">Compra al <strong>primero</strong> que responde, no al más barato ni al mejor</div>
+                <div class="data-source">Fuente: Forbes</div>
+            </div>
+            <div class="data-box gold-box animate-on-scroll animate-delay-1">
+                <div class="big-number gold">82%</div>
+                <div class="data-label">De consumidores esperan respuesta inmediata (&lt;10 min)</div>
+                <div class="data-source">Fuente: HubSpot</div>
+            </div>
+        </div>
+
+        <div class="data-box animate-on-scroll" style="margin-top: 20px;">
+            <div class="big-number red">84.000 EUR/año</div>
+            <div class="data-label">Dinero tirado a la basura si inviertes 10.000 EUR/mes en ads y el 70% de leads nunca son contactados</div>
+            <div class="data-source">Cálculo presentado en el Bootcamp</div>
+        </div>
+
+        <div class="quote-block animate-on-scroll">
+            <p class="quote-text">Cada minuto que no contestas, tu competencia lo hace. El 78% compra al primero que responde.</p>
+            <p class="quote-author">Adrián Lucena &mdash; Datos de Forbes</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== AGENTES IA ===== -->
+<section>
+    <div class="container">
+        <div class="animate-on-scroll">
+            <div class="section-divider"></div>
+            <div class="section-label">La Solución</div>
+            <h2 class="section-title">Agentes de IA: WhatsApp y Voz</h2>
+            <p class="section-desc">Se demostró en vivo cómo funcionan los agentes de IA conversacionales integrados en Focus CRM: respuesta instantánea, cualificación automática, agendamiento de citas y seguimiento persistente.</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card animate-on-scroll">
+                <div class="card-icon">🤖</div>
+                <h3>Agente de WhatsApp</h3>
+                <p>Bot con personalidad propia basado en <strong>ChatGPT-5</strong>. Se entrena con FAQs, información de la empresa, URL de la web y conversaciones exitosas. Responde por WhatsApp, Instagram, Facebook, SMS y chat web.</p>
+            </div>
+            <div class="card animate-on-scroll animate-delay-1">
+                <div class="card-icon">📞</div>
+                <h3>Agente de Voz IA</h3>
+                <p>Recepcionista virtual que contesta llamadas 24/7, cualifica al cliente, agenda citas automáticamente y transfiere a un humano cuando detecta alto interés. Nunca más una llamada perdida.</p>
+            </div>
+            <div class="card animate-on-scroll animate-delay-2">
+                <div class="card-icon">📊</div>
+                <h3>Focus CRM (GoHighLevel)</h3>
+                <p>CRM completo con <strong>pipelines</strong> visuales, dashboards de rendimiento, tracking de comerciales, grabación de llamadas e historial completo de cada lead. Marca blanca personalizada.</p>
+            </div>
+            <div class="card animate-on-scroll animate-delay-3">
+                <div class="card-icon">🔄</div>
+                <h3>Seguimiento Automatizado</h3>
+                <p>El bot realiza hasta <strong>7 impactos automatizados</strong> de seguimiento. La mayoría de ventas se cierran entre el 5to y 6to touch point. Sin seguimiento, pierdes dinero.</p>
+            </div>
+        </div>
+
+        <!-- Capabilities -->
+        <div class="animate-on-scroll" style="margin-top: 30px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 16px;">Capacidades del Agente de IA</h3>
+            <div class="data-box info">
+                <div class="data-label">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 6px 0;">&#10003; Responde a audios y comprende imágenes</li>
+                        <li style="padding: 6px 0;">&#10003; Multilingüe: configurable en cualquier idioma</li>
+                        <li style="padding: 6px 0;">&#10003; Reagenda citas automáticamente</li>
+                        <li style="padding: 6px 0;">&#10003; Envía audios personalizados grabados por el dueño</li>
+                        <li style="padding: 6px 0;">&#10003; Unifica contactos de múltiples canales en una ficha</li>
+                        <li style="padding: 6px 0;">&#10003; Notificaciones PUSH, SMS y WhatsApp al equipo</li>
+                        <li style="padding: 6px 0;">&#10003; Traspaso inteligente a humano en momento óptimo</li>
+                        <li style="padding: 6px 0;">&#10003; App móvil disponible para gestión en movimiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study: Carballo -->
+        <div class="case-study animate-on-scroll">
+            <div class="case-study-label">Caso de Éxito</div>
+            <h3>Carballo &mdash; Micropigmentación Capilar</h3>
+            <p style="color: var(--gray-200); font-size: 0.9rem; line-height: 1.6;">El bot utiliza un tono informal con audios grabados por el propio Carballo. Solicita fotos del estado de alopecia, hace seguimiento persistente, cualifica al candidato, detalla el proceso completo y agenda citas ofreciendo un descuento de 300 EUR.</p>
+            <div class="case-metrics">
+                <div class="case-metric">
+                    <div class="metric-value">500 EUR</div>
+                    <div class="metric-label">Inversión en Ads</div>
+                </div>
+                <div class="case-metric">
+                    <div class="metric-value">8</div>
+                    <div class="metric-label">Clientes Cerrados</div>
+                </div>
+                <div class="case-metric">
+                    <div class="metric-value">16.000 EUR</div>
+                    <div class="metric-label">Facturación Generada</div>
+                </div>
+                <div class="case-metric">
+                    <div class="metric-value">32x</div>
+                    <div class="metric-label">ROI</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Another case -->
+        <div class="case-study animate-on-scroll" style="border-color: rgba(52,152,219,0.2); background: linear-gradient(145deg, rgba(52,152,219,0.08), rgba(52,152,219,0.02));">
+            <div class="case-study-label" style="color: var(--blue);">Caso de Éxito</div>
+            <h3>Optimización Comercial con CRM</h3>
+            <p style="color: var(--gray-200); font-size: 0.9rem; line-height: 1.6;">Una empresa pasó de 68 ventas a 156 ventas en un solo mes, duplicando su facturación sin invertir más en publicidad. Solo optimizando el equipo comercial con el sistema CRM de Focus.</p>
+            <div class="case-metrics">
+                <div class="case-metric">
+                    <div class="metric-value" style="color: var(--blue);">68</div>
+                    <div class="metric-label">Ventas Antes</div>
+                </div>
+                <div class="case-metric">
+                    <div class="metric-value" style="color: var(--blue);">156</div>
+                    <div class="metric-label">Ventas Después</div>
+                </div>
+                <div class="case-metric">
+                    <div class="metric-value" style="color: var(--blue);">+129%</div>
+                    <div class="metric-label">Incremento</div>
+                </div>
+                <div class="case-metric">
+                    <div class="metric-value" style="color: var(--blue);">0 EUR</div>
+                    <div class="metric-label">Inversión Extra en Ads</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONSEJOS CLAVE ===== -->
+<section style="background: linear-gradient(180deg, rgba(15,31,58,0.3) 0%, var(--navy) 100%);">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <div class="section-divider"></div>
+            <div class="section-label">Aprendizajes</div>
+            <h2 class="section-title">Los 10 Consejos Clave del Bootcamp</h2>
+        </div>
+
+        <div class="tip-item animate-on-scroll">
+            <div class="tip-number">1</div>
+            <div class="tip-text"><strong>Responde en menos de 60 segundos.</strong> Cada minuto de retraso reduce drásticamente la probabilidad de venta. El 78% compra al primero que responde.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-1">
+            <div class="tip-number">2</div>
+            <div class="tip-text"><strong>Automatiza con agentes de IA.</strong> Usa bots de WhatsApp y voz para respuesta instantánea 24/7, cualificación y agendamiento automático.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-1">
+            <div class="tip-number">3</div>
+            <div class="tip-text"><strong>Aplica la Ley de la Reciprocidad.</strong> Aporta valor gratuito constantemente. Cuanto más das, más en deuda se sienten los clientes y más compran.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-2">
+            <div class="tip-number">4</div>
+            <div class="tip-text"><strong>El Hook es el 80% del éxito.</strong> Los primeros 3 segundos de tu reel lo son todo. Inspírate en hooks ya virales en TikTok, no experimentes desde cero.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-2">
+            <div class="tip-number">5</div>
+            <div class="tip-text"><strong>Siempre incluye un CTA claro.</strong> Sin Call to Action pierdes todo el potencial viral. Di exactamente qué quieres que haga el espectador.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-3">
+            <div class="tip-number">6</div>
+            <div class="tip-text"><strong>Usa "Reels de Prueba" de Instagram.</strong> Testea diferentes hooks con audiencia desconocida antes de publicar en tu perfil. Minimiza riesgo, maximiza resultados.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-3">
+            <div class="tip-number">7</div>
+            <div class="tip-text"><strong>Haz seguimiento persistente.</strong> La mayoría de ventas se cierran entre el 5to y 6to contacto. Sin al menos 6-7 impactos, estás perdiendo dinero.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-4">
+            <div class="tip-number">8</div>
+            <div class="tip-text"><strong>Confía en los datos, no en percepciones.</strong> Basa tus decisiones en data real (Harvard, MIT, Forbes), no en "tabúes" o lo que crees que funciona.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-4">
+            <div class="tip-number">9</div>
+            <div class="tip-text"><strong>Cualifica tus leads.</strong> Dirige el tráfico a embudos con preguntas de cualificación, no directamente a WhatsApp. Atrae leads dispuestos a pagar.</div>
+        </div>
+        <div class="tip-item animate-on-scroll animate-delay-5">
+            <div class="tip-number">10</div>
+            <div class="tip-text"><strong>Volumen sobre perfección.</strong> No busques la edición perfecta. Crea mucho contenido de valor con buen hook. La constancia gana a la perfección.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EQUIPO ===== -->
+<section>
+    <div class="container">
+        <div class="animate-on-scroll">
+            <div class="section-divider"></div>
+            <div class="section-label">Tu Equipo</div>
+            <h2 class="section-title">Consultores FOCUS.</h2>
+            <p class="section-desc">El equipo que te acompañará durante los próximos 3 meses de implementación personalizada.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member animate-on-scroll">
+                <div class="team-avatar">AL</div>
+                <div class="team-name">Adrián Lucena</div>
+                <div class="team-role">CEO & Fundador</div>
+            </div>
+            <div class="team-member animate-on-scroll animate-delay-1">
+                <div class="team-avatar">SS</div>
+                <div class="team-name">Sergi Suller</div>
+                <div class="team-role">Dir. Consultores</div>
+            </div>
+            <div class="team-member animate-on-scroll animate-delay-1">
+                <div class="team-avatar">SR</div>
+                <div class="team-name">Sergio Rodríguez</div>
+                <div class="team-role">Dir. Comercial</div>
+            </div>
+            <div class="team-member animate-on-scroll animate-delay-2">
+                <div class="team-avatar">AR</div>
+                <div class="team-name">Amin Rajjaf</div>
+                <div class="team-role">Dir. Creativo</div>
+            </div>
+            <div class="team-member animate-on-scroll animate-delay-2">
+                <div class="team-avatar">AS</div>
+                <div class="team-name">Álvar S.</div>
+                <div class="team-role">Consultor</div>
+            </div>
+            <div class="team-member animate-on-scroll animate-delay-3">
+                <div class="team-avatar">AF</div>
+                <div class="team-name">Alex Focus</div>
+                <div class="team-role">Consultor</div>
+            </div>
+            <div class="team-member animate-on-scroll animate-delay-3">
+                <div class="team-avatar">IF</div>
+                <div class="team-name">Izan Focus</div>
+                <div class="team-role">Consultor</div>
+            </div>
+            <div class="team-member animate-on-scroll animate-delay-4">
+                <div class="team-avatar">HF</div>
+                <div class="team-name">Harold Focus</div>
+                <div class="team-role">Consultor</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HERRAMIENTAS ===== -->
+<section style="background: linear-gradient(180deg, rgba(15,31,58,0.3) 0%, var(--navy) 100%);">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <div class="section-divider"></div>
+            <div class="section-label">Ecosistema</div>
+            <h2 class="section-title">Herramientas y Plataformas</h2>
+            <p class="section-desc">Todas las herramientas mencionadas durante el Bootcamp que se utilizarán en la implementación.</p>
+        </div>
+
+        <div class="tools-grid animate-on-scroll">
+            <span class="tool-tag">Focus CRM</span>
+            <span class="tool-tag">GoHighLevel</span>
+            <span class="tool-tag">WhatsApp Business</span>
+            <span class="tool-tag">Meta Ads</span>
+            <span class="tool-tag">Instagram Reels</span>
+            <span class="tool-tag">TikTok</span>
+            <span class="tool-tag">ChatGPT-5</span>
+            <span class="tool-tag">CapCut</span>
+            <span class="tool-tag">Meta Ads Library</span>
+            <span class="tool-tag">Manus IA</span>
+            <span class="tool-tag">Zoom</span>
+            <span class="tool-tag">Loom</span>
+            <span class="tool-tag">Eleven Labs</span>
+            <span class="tool-tag">Heigen</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRÓXIMOS PASOS ===== -->
+<section>
+    <div class="container">
+        <div class="animate-on-scroll">
+            <div class="section-divider"></div>
+            <div class="section-label">Lo que viene</div>
+            <h2 class="section-title">Próximos Pasos</h2>
+        </div>
+
+        <div class="next-steps animate-on-scroll">
+            <div class="step-item">
+                <div class="step-icon">1</div>
+                <div class="step-text"><strong>Domingo 26 de abril (11:00h):</strong> Continuación del Bootcamp con embudos de venta, agentes conversacionales de voz, agentes IA avanzados y lanzamiento de ads.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-icon">2</div>
+                <div class="step-text"><strong>Acceso a Focus Consultor:</strong> Recibirás el enlace de acceso a la plataforma para agendar tus sesiones 1 a 1 con los consultores.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-icon">3</div>
+                <div class="step-text"><strong>Lunes 28 de abril:</strong> Comienzan los 3 meses de consultoría personalizada. Implementación real de CRM, agentes IA, embudos y anuncios en tu negocio.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-icon">4</div>
+                <div class="step-text"><strong>Grabaciones disponibles:</strong> Todas las sesiones quedan grabadas con resúmenes de IA para que puedas revisarlas cuando quieras.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/NgbapgszuCMWQUAA.png" alt="FOCUS. Consulting Group" class="footer-logo animate-on-scroll">
+    <h2 class="footer-thanks animate-on-scroll">Muchísimas Gracias por Ser Clientes de FOCUS. Consulting Group</h2>
+    <p class="footer-text animate-on-scroll">Estáis en la punta de lanza de cualquier consultora de marketing. Este es el inicio de algo muy potente. Los próximos 3 meses van a transformar vuestros negocios.</p>
+    <p class="footer-text animate-on-scroll" style="font-weight: 600; color: var(--gold);">Nos vemos mañana a las 11:00h. Abrazo fuerte, familia.</p>
+    <p class="footer-copy">&copy; 2026 FOCUS. Consulting Group. Bootcamp 25-26 de Abril.</p>
+</footer>
+
+<script>
+// ===== Intersection Observer for Scroll Animations =====
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+// ===== Particle Generation =====
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 6 + 's';
+    particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+    particle.style.width = (2 + Math.random() * 3) + 'px';
+    particle.style.height = particle.style.width;
+    particlesContainer.appendChild(particle);
+}
+
+// ===== Counter Animation =====
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const text = el.textContent;
+            const match = text.match(/[\d,.]+/);
+            if (match) {
+                const target = parseFloat(match[0].replace(',', ''));
+                const suffix = text.replace(match[0], '');
+                const prefix = text.substring(0, text.indexOf(match[0]));
+                let current = 0;
+                const increment = target / 40;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    el.textContent = prefix + (Number.isInteger(target) ? Math.floor(current) : current.toFixed(0)) + suffix;
+                }, 30);
+            }
+            counterObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
+
+// ===== Smooth scroll for hero scroll indicator =====
+document.querySelector('.hero-scroll')?.addEventListener('click', () => {
+    window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
